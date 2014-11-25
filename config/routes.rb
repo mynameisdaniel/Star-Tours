@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   	resources :locations, only: [:new]
   end
   resource :session
-  resources :locations
+  resources :locations do
+  	resources :reviews, only: [:new]
+  end
+  resources :reviews
 
 end

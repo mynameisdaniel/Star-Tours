@@ -1,0 +1,11 @@
+<strong>Reviews:</strong>
+<ul style="list-style: none">
+  <% reviews.each do |review| %>
+  <li>User: <%= review.user.username %></li>
+  <li>Rating: <%= review.rating %></li>
+  <li>Review: <%= review.body %></li>
+  <li><%= button_to "Remove Review", review_url(review), method: :delete %>
+  </li>
+  <br>
+  <% end %>
+</ul>

@@ -1,6 +1,8 @@
 Star Tours Root Page
 <div class="backdrop">
   <div id="main">
+  <% if current_user %>
   <%= link_to "Create New Location", new_user_location_url(current_user.id) %>
+  <% end %>
   </div>
 </div>

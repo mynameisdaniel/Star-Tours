@@ -4,6 +4,11 @@
 <p><strong>Price :</strong><%= @location.price %></p>
 
 <%= link_to "Edit Location", edit_location_url(@location) %>
+<%= link_to "Add Review", new_location_review_url(@location) %>
+
 <br><br>
 <%= button_to "Remove Location", location_url(@location), method: :delete %>
+<br><br>
+<%= render partial: "layouts/reviews", locals: {reviews: @reviews} %>
+
 

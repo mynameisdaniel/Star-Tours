@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true}
 
   has_many :locations
+  has_many :reviews
 
   before_validation :ensure_session_token
 
