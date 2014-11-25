@@ -12,9 +12,12 @@
 #
 
 class Location < ActiveRecord::Base
+  
   validates :title, :description, :price, presence: true
   validates :user, presence: true
 
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+
 end

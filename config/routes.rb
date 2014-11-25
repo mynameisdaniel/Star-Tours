@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resource :session
   resources :locations do
   	resources :reviews, only: [:new]
+  	resources :reservations, only: [:new]
   end
   resources :reviews
+  resources :reservations
 
 end

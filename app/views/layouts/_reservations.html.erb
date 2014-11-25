@@ -1,0 +1,45 @@
+<strong>Reservations:</strong>
+<ul style="list-style: none">
+  <% reservations.each do |reservation| %>
+  <li>User: <%= reservation.user.username %></li>
+  <li>Start Date: <%= reservation.date_start %></li>
+  <li>End Date: <%= reservation.date_end %></li>
+  <li>Status: <%= reservation.status %></li>
+  
+  <% if reservation.status == "PENDING" %>
+
+  <li>
+  	<form action="<%=reservation_url(reservation)%>" method="POST">
+	  <input type="hidden"
+	           name="authenticity_token"
+	           value="<%= form_authenticity_token %>">
+	  
+	  <input type="hidden" name="_method" value="PATCH">
+
+	  <input type="hidden"
+		       name="reservation[status]"
+           value="APPROVE" >
+    <input value="APPROVE" type="submit"> 
+    </form>
+
+
+    <form action="<%=reservation_url(reservation)%>" method="POST">
+	  <input type="hidden"
+	           name="authenticity_token"
+	           value="<%= form_authenticity_token %>">
+	  
+	  <input type="hidden" name="_method" value="PATCH">
+    
+	  <input type="hidden"
+		       name="reservation[status]"
+           value="DENY" >
+    <input value="DENY" type="submit"> 
+    </form>
+
+  </li>
+
+  <% end %>
+
+  <br>
+  <% end %>
+</ul>

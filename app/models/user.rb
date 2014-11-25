@@ -18,8 +18,9 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
-  has_many :locations
-  has_many :reviews
+  has_many :locations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   before_validation :ensure_session_token
 

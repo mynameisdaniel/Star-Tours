@@ -35,6 +35,7 @@ class LocationsController < ApplicationController
   def show
   	@location = Location.find(params[:id])
     @reviews = @location.reviews
+    @reservations = @location.reservations
   	# render :json => @location
   end
 
