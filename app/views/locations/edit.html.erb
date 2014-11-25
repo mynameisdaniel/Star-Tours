@@ -1,0 +1,23 @@
+<h1>Edit Location Page</h1>
+
+
+<form action="<%= location_url(@location) %>" method="post">
+	
+  <input type="hidden" name="_method" value="patch">
+	<input type="hidden"
+	       name="authenticity_token"
+	       value="<%= form_authenticity_token %>">
+
+	<label for="title">Title</label>
+	<input type="text" name="location[title]" id="title" value="<%= @location.title %>">
+
+	<label for="description">Description</label>
+	<input type="textarea" rows="10" cols="40" name="location[description]" id="description" value="<%= @location.description %>">
+
+  <label for="price">Price</label>
+	<input type="text" name="location[price]" id="price" value="<%= @location.price %>">
+
+	<input type="submit" value="Update Location!">
+
+</form>
+	

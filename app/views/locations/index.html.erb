@@ -1,0 +1,16 @@
+<h1>Location Index Page</h1>
+
+<ul>
+<% @locations.each do |location| %>
+
+  <!-- <li><%= location.title %>, <%= location.title %>, <%= location.price %> </li> -->
+  <li>
+  	<%= link_to location.title, location_url(location) %>
+  </li>
+  <li>
+  	<%= button_to "delete", location_url(location), method: :delete %>
+  </li>
+
+
+<% end %>
+</ul>

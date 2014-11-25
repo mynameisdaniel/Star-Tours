@@ -18,10 +18,11 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_many :locations
+
   before_validation :ensure_session_token
 
   def self.find_by_credentials(username, password)
-    debugger
   	user = User.find_by_username(username)
     user.try(:is_password?, password) ? user : nil
   end
