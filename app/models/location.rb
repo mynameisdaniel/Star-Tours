@@ -19,5 +19,6 @@ class Location < ActiveRecord::Base
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_many :location_pictures, dependent: :destroy
 
 end

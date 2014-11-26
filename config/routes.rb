@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :locations do
   	resources :reviews, only: [:new]
   	resources :reservations, only: [:new]
+
   end
   resources :reviews
   resources :reservations
+  resources :location_pictures, only: [:create]
 
 end

@@ -1,0 +1,26 @@
+<strong>Pictures:</strong>
+<br>
+
+  <% pictures.each do |picture| %>
+  <span><img src="<%= picture.image_url %>" height="200" width="200"></span>
+  
+  <% end %>
+
+<form action="<%= location_pictures_url %>" method="post">
+
+	<input type="hidden"
+	       name="authenticity_token"
+	       value="<%= form_authenticity_token %>">
+
+	<input type="hidden"
+	       name="location_picture[location_id]"
+	       value="<%= location.id %>">
+
+
+	<label for="image_url">Upload Image:</label>
+	<input type="text" name="location_picture[image_url]" id="image_url" placeholder="Paste URL here">
+
+	<input type="submit" value="Upload">
+
+</form>
+	
