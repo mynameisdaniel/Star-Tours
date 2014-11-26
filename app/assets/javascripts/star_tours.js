@@ -4,9 +4,10 @@ window.StarTours = {
   Views: {},
   Routers: {},
   initialize: function() {
-  	// alert("startours")
-  	// new StarTours.Routers.Router();
-  	// Backbone.history.start()
+  	new StarTours.Routers.Router({
+  		$rootEl : $('.main-content')
+  	});
+  	Backbone.history.start()
   }
 };
 

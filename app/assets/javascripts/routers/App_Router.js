@@ -1,12 +1,30 @@
 StarTours.Routers.Router = Backbone.Router.extend({
 
-  initialize: function (){
-    this.$rootEl = $('body')
+  initialize: function (options){
+    this.$rootEl = options.$rootEl
   },
 
   routes:{
   	"":"rootView",
-  	"test/":"test"
+  	"master/":"masterView",
+    "about":"aboutView",
+    "contact":"contactView",
+
+  	// "locations/":" locationIndex",
+  	// "locations/new": "locationNew",
+  	// "locations/:id": "locationShow"
+  },
+
+  contactView: function(){
+    var view = new StarTours.Views.TestView();
+    this._swapView(view)
+
+  },
+
+  aboutView: function(){
+    var view = new StarTours.Views.TestView();
+    this._swapView(view)
+
   },
 
   rootView: function(){
@@ -15,9 +33,32 @@ StarTours.Routers.Router = Backbone.Router.extend({
 
   },
 
+  masterView: function(){
+    var view = new StarTours.Views.MasterView();
+   	this._swapView(view)
+
+  },
+
+  locationIndex: function(){
+    alert("index");
+    $('.main-content').html("This is the backbone location indexpage");
+  },
+
+  locationShow: function(){
+    alert("show");
+   $('.main-content').html("This is the backbone location showpage");
+
+  },
+
+  locationNew: function(){
+    alert("new");
+    $('.main-content').html("This is the backbone location indexpage");
+
+  }, 
+
   test: function(){
-  	alert("map")
-    $('#map-canvas').html("This is the backbone router test page")
+  	alert("testRoute - enjoy the map");
+    $('.main-content').html("This is the backbone router test page");
   },
 
   _swapView: function(view){
