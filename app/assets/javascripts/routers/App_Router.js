@@ -34,7 +34,10 @@ StarTours.Routers.Router = Backbone.Router.extend({
   },
 
   masterView: function(){
-    var view = new StarTours.Views.MasterView();
+    StarTours.Collections.locations.fetch();
+    var view = new StarTours.Views.MasterView({
+      collection: StarTours.Collections.locations
+    });
    	this._swapView(view)
 
   },

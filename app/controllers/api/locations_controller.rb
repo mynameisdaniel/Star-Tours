@@ -1,4 +1,9 @@
-class LocationsController < ApplicationController
+class Api::LocationsController < ApplicationController
+
+  def index
+    @locations = Location.all
+    render :json => @locations
+  end
 
 	def new
     @location = Location.new
@@ -26,10 +31,6 @@ class LocationsController < ApplicationController
       flash[:errors] = @location.errors.full_messages
       render :edit
     end
-  end
-
-  def index
-  	@locations = Location.all
   end
 
   def show

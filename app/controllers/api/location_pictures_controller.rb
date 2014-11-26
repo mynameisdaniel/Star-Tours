@@ -1,4 +1,4 @@
-class LocationPicturesController < ApplicationController
+class Api::LocationPicturesController < ApplicationController
 
 	def create
 		location_picture = LocationPicture.new(picture_params)
