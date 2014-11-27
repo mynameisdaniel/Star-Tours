@@ -1,8 +1,11 @@
 class Api::LocationsController < ApplicationController
 
   def index
-    @locations = Location.all
-    render :json => @locations
+      # @board = Board.includes(:members, lists: :cards).find(params[:id])
+
+
+    @locations = Location.includes(:location_pictures).all
+    render :index
   end
 
 	def new
@@ -34,11 +37,11 @@ class Api::LocationsController < ApplicationController
   end
 
   def show
-  	@location = Location.find(params[:id])
-    @reviews = @location.reviews
-    @reservations = @location.reservations
-    @pictures = @location.location_pictures
-  	# render :json => @location
+  	@location = Location.includes(:reviews, :reservations, :location_pictures).find(params[:id])
+    # @reviews = @location.reviews
+    # @reservations = @location.reservations
+    # @pictures = @location.location_pictures
+  	render :show
   end
 
   def destroy

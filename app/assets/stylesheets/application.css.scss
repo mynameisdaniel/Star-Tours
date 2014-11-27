@@ -15,4 +15,12 @@
  */
 
  @import "bootstrap-sprockets";
- @import "bootstrap"
+ @import "bootstrap";
+
+ div .master-index-show {
+ 	position: relative;
+ 	display: inline-block;
+ 	width: 50%;
+ 	border: 1px solid black;
+
+ }

@@ -17,6 +17,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'backbone-on-rails'
+gem 'geocoder'
 
 group :development do
   gem 'annotate'

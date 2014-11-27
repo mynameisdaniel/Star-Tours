@@ -1,4 +1,4 @@
-StarTours.Views.MasterView = Backbone.View.extend({
+StarTours.Views.MasterView = Backbone.CompositeView.extend({
 
   initialize: function(){
   	this.listenTo(this.collection, "sync", this.render)
@@ -8,13 +8,14 @@ StarTours.Views.MasterView = Backbone.View.extend({
   template: JST["root/master"],
 
   render: function(){
-  	var renderedContent = this.template({locations: this.collection});
+  	var renderedContent = this.template();
   	this.$el.html(renderedContent);
+    this.collection.each(function(location){
+      var masterIndexSubview = new StarTours.Views.LocationsIndex({model:location});
+      // this.$el.find('#listings-index').append(masterIndexSubview.render().$el)
+      this.addSubview("#listings-index", masterIndexSubview);
 
-  	// var listIndexView = new StarTours.Views.LocationsIndex({
-  	// 	collection: this.collection
-  	// })
-  	// this.$el.find("#listings-index").html(listIndexView)
+    }.bind(this))
   	return this
   }
 

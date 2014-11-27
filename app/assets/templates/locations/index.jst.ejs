@@ -1,8 +1,5 @@
-Something here
-
-<% locations.each(function(location){ %>
-	
-	<li><%= location.escape("title") %></li>
-
-
-<% }) %>
+<strong><%= location.escape("title") %></strong>
+<br>
+Description: <%= location.escape("description") %>
+<br>
+Price: <%= location.escape("price") %>
