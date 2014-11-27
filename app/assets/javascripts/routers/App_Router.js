@@ -11,8 +11,8 @@ StarTours.Routers.Router = Backbone.Router.extend({
     "contact":"contactView",
 
   	// "locations/":" locationIndex",
-  	// "locations/new": "locationNew",
-  	// "locations/:id": "locationShow"
+  	"locations/new": "locationNew",
+  	"locations/:id": "locationShow"
   },
 
   contactView: function(){
@@ -47,16 +47,20 @@ StarTours.Routers.Router = Backbone.Router.extend({
     $('.main-content').html("This is the backbone location indexpage");
   },
 
-  locationShow: function(){
-    alert("show");
-   $('.main-content').html("This is the backbone location showpage");
-
+  locationShow: function(id){
+    var location = StarTours.Collections.locations.getOrFetch(id);
+    var view = new StarTours.Views.LocationsShow({ model: location});
+    this._swapView(view)
   },
 
   locationNew: function(){
-    alert("new");
-    $('.main-content').html("This is the backbone location indexpage");
-
+    StarTours.Collections.locations.fetch();
+    var newLocation = new StarTours.Models.Location();
+    var view = new StarTours.Views.LocationsNew({
+      model: newLocation,
+      collection: StarTours.Collections.locations
+    });
+    this._swapView(view);
   }, 
 
   test: function(){

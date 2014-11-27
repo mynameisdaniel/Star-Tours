@@ -15,7 +15,7 @@ class Api::LocationsController < ApplicationController
 	def create
     @location = current_user.locations.new(location_params)
     if @location.save
-      redirect_to location_url(@location)
+      render :json => @location
     else
     	flash[:errors] = @location.errors.full_messages
       render :new
