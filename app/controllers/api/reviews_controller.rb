@@ -19,7 +19,6 @@ class Api::ReviewsController < ApplicationController
 	def destroy
     review = Review.find(params[:id])
     review.destroy
-    redirect_to location_url(review.location)
 	end
 
 	private

@@ -1,7 +1,9 @@
 StarTours.Views.LocationsShow = Backbone.View.extend({
 
   initialize: function(){
-    this.listenTo( this.model, "sync", this.render)
+    this.listenTo( this.model, "sync", this.render);
+    this.locationPictures = this.model.pictures();
+    this.listenTo( this.locationPictures, "add", this.render);
   },
 
   template: JST["locations/show"],
@@ -17,8 +19,8 @@ StarTours.Views.LocationsShow = Backbone.View.extend({
     var newPicture = new StarTours.Models.LocationPicture()
     newPicture.save(attrs,{
       success: function(response){
-        debugger
-        Backbone.history.navigate(this.model.url().slice(4), { trigger: true})
+        // Backbone.history.navigate(this.model.url().slice(4), { trigger: true})
+        this.locationPictures.add(newPicture);
       }.bind(this)
     }) 
   },

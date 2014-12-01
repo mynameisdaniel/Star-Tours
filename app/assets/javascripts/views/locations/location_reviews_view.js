@@ -1,13 +1,16 @@
 StarTours.Views.LocationReviews = Backbone.View.extend({
 
   initialize: function(){
-    this.listenTo( this.model, "sync", this.render)
+    this.listenTo( this.model, "sync", this.render);
+    this.locationReviews = this.model.reviews();
+    this.listenTo( this.locationReviews, "remove", this.render);
   },
 
   template: JST["locations/reviews"],
 
   events: {
-    "submit form":"addReview"
+    "submit form":"addReview",
+    "click button.remove-review": "removeReview"
   },
 
   addReview: function(event){
@@ -20,6 +23,14 @@ StarTours.Views.LocationReviews = Backbone.View.extend({
         Backbone.history.navigate(this.model.url().slice(4), { trigger: true})
       }.bind(this)
     }) 
+  },
+
+  removeReview: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    var review = this.model.reviews().get($target.data("id"));
+    review.destroy();
+
   },
 
   render: function(){
