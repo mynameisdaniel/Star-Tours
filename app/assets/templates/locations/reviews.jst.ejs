@@ -1,8 +1,4 @@
-This is the reviews page. Please fill me up.
-
-<br>
-
-Reviews:
+<strong>Reviews:</strong>
 	<% reviews.each(function(review){ %>
     <li><strong>Reviewer:</strong> <%= review.escape("user_id") %></li>
     <li><strong>Rating:</strong> <%= review.escape("rating") %></li>

@@ -1,8 +1,4 @@
-This is the reservations page. Please fill me up.
-
-<br>
-
-Reservations:
+<strong>Reservations:</strong>
   <% reservations.each(function(reservation){ %>
     <li><strong>User: </strong><%= reservation.escape("user_id") %></li>
     <li><strong>Start Date: </strong><%= reservation.escape("date_start") %></li>
@@ -10,7 +6,7 @@ Reservations:
     <li><strong>Status: </strong><%= reservation.escape("status") %></li>
 		<% if (reservation.escape("status") == "PENDING") { %>
 		  <li>
-		  	<form class="approve-reservation">
+		  	<form class="approve-reservation" data-id="<%= reservation.escape('id') %>">
 			  
 			  <input type="hidden"
 				       name="reservation[status]"
@@ -19,7 +15,7 @@ Reservations:
 		    </form>
       </li>
       <li>
-		    <form class="deny-reservation">		  
+		    <form class="deny-reservation" data-id="<%= reservation.escape('id') %>">		  
 			  <input type="hidden"
 				       name="reservation[status]"
 		           value="DENY" >

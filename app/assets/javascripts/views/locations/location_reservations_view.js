@@ -7,7 +7,23 @@ StarTours.Views.LocationReservations = Backbone.View.extend({
   template: JST["locations/reservations"],
 
     events: {
-    "submit form":"addReservation"
+    "submit form.add-reservation":"addReservation",
+    "submit form.approve-reservation":"updateReservation",
+    "submit form.deny-reservation":"updateReservation"
+  },
+
+  updateReservation: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    var reservation = this.model.reservations().get($target.data("id"));
+    var attrs = $target.serializeJSON().reservation;
+    reservation.set(attrs);
+    reservation.save({}, {
+      success: function(response){
+        Backbone.history.navigate(this.model.url().slice(4), { trigger: true})
+      }.bind(this)
+      }
+    )
   },
 
   addReservation: function(event){

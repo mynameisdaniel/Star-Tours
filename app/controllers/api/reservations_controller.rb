@@ -20,9 +20,9 @@ class Api::ReservationsController < ApplicationController
       @reservation = Reservation.find(params[:id])
       location = @reservation.location
       if @reservation.update_attributes(reservation_params)
-        redirect_to location_url(location)
+        render json: @reservation
       else
-    	render @reservation.errors.full_messages
+    	  flash[:errors] = @reservation.errors.full_messages
       end 
 	end
 

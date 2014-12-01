@@ -7,7 +7,7 @@ json.reviews @location.reviews do |review|
 end
 
 json.reservations @location.reservations do |reservation|
-    json.extract!(reservation, :user_id, :location_id, :date_start, :date_end, :status)
+    json.extract!(reservation, :id, :user_id, :location_id, :date_start, :date_end, :status)
 end
 
 json.pictures @location.location_pictures do |picture|
