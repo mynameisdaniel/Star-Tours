@@ -1,0 +1,24 @@
+<h1>Edit Location Page</h1>
+
+
+<form class="location-form">
+
+	<label for="title">Title</label>
+	<input type="text" name="location[title]" id="title" value="<%= location.escape('title') %>">
+	<br>
+
+	<label for="description">Description</label>
+	<input type="textarea" rows="10" cols="40" name="location[description]" id="description" value="<%= location.escape('description') %>">
+  <br>
+
+	<label for="address">Address</label>
+	<input type="text" name="location[address]" id="address" value="<%= location.escape('address') %>" style="width: 300px">
+  <br>
+
+  <label for="price">Price</label>
+	<input type="text" name="location[price]" id="price" value="<%= location.escape('price') %>">
+  <br>
+	<input type="submit" value="Update Location!">
+
+</form>
+	

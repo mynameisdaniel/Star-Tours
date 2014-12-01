@@ -10,15 +10,16 @@
 </div>
 
 <div class="location-show-mini-blurb">Mini blurb, owner picture, location amenities
-	<li><strong>Id: </strong><%= location.escape("id") %></li>
 	<li><strong>Title: </strong><%= location.escape("title") %></li>
 	<li><strong>Description: </strong><%= location.escape("description") %></li>
 	<li><strong>Price: </strong><%= location.escape("price") %></li>
+	<li><strong>Address: </strong><%= location.escape("address") %></li>
   
   <br>
 	<a href="#/locations/<%= location.escape('id') %>/reservations">Make a reservation</a>
 	<a href="#/locations/<%= location.escape('id') %>/reviews">Add a review</a>
-
+  <a href="#/locations/<%= location.escape('id') %>/edit">Edit Location Details</a>
+  <a href="#/master/">Browse Other Locations</a>
   
 </div>
 

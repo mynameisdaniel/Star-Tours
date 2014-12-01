@@ -29,18 +29,14 @@ class Api::LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     if @location.update(location_params)
-      redirect_to location_url(@location)
+      render :json => @location
     else
       flash[:errors] = @location.errors.full_messages
-      render :edit
     end
   end
 
   def show
   	@location = Location.includes(:reviews, :reservations, :location_pictures).find(params[:id])
-    # @reviews = @location.reviews
-    # @reservations = @location.reservations
-    # @pictures = @location.location_pictures
   	render :show
   end
 
@@ -52,6 +48,6 @@ class Api::LocationsController < ApplicationController
 
   private
   def location_params
-    params.require(:location).permit(:title, :description, :price, :user_id)
+    params.require(:location).permit(:title, :description, :price, :user_id, :address, :longitude, :latitude)
   end
 end

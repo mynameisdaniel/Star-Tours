@@ -1,7 +1,8 @@
 json.array! @locations do |location|
 
     json.extract!(location, :id, :title, :description, :user_id, 
-                            :price, :created_at, :updated_at)
+                            :price, :created_at, :updated_at, :longitude, :latitude,
+                            :address)
 
     json.pictures location.location_pictures do |picture|
       json.extract!(picture, :image_url)

@@ -13,7 +13,8 @@ StarTours.Routers.Router = Backbone.Router.extend({
   	"locations/new": "locationNew",
   	"locations/:id": "locationShow",
     "locations/:id/reservations": "locationReservations",
-    "locations/:id/reviews": "locationReviews"
+    "locations/:id/reviews": "locationReviews",
+    "locations/:id/edit": "locationEdit"
   },
 
   contactView: function(){
@@ -65,6 +66,13 @@ StarTours.Routers.Router = Backbone.Router.extend({
     var view = new StarTours.Views.LocationReservations({ model: location});
     this._swapView(view);
     
+  },
+
+  locationEdit: function(id){
+    var location = StarTours.Collections.locations.getOrFetch(id);
+    var view = new StarTours.Views.LocationEdit({ model: location});
+    this._swapView(view)
+
   },
 
   locationNew: function(){

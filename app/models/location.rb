@@ -16,6 +16,9 @@ class Location < ActiveRecord::Base
   validates :title, :description, :price, presence: true
   validates :user, presence: true
 
+  geocoded_by :address
+  after_validation :geocode
+
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :reservations, dependent: :destroy

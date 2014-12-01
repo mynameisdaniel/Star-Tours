@@ -26,12 +26,5 @@ group :development do
   gem 'pry-rails'
 end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
 gem 'byebug', group: [:development, :test]
 
