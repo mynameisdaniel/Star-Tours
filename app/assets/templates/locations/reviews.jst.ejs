@@ -1,0 +1,46 @@
+This is the reviews page. Please fill me up.
+
+<br>
+
+Reviews:
+	<% reviews.each(function(review){ %>
+    <li><strong>Reviewer:</strong> <%= review.escape("user_id") %></li>
+    <li><strong>Rating:</strong> <%= review.escape("rating") %></li>
+    <li><strong>Review:</strong> <%= review.escape("body") %></li>
+    <br>
+
+	<% }) %>
+
+  <br>
+
+
+Add a Review!
+
+<form class="add-review">
+
+	<input type="hidden"
+	       name="review[location_id]"
+	       value="<%= location.escape("id") %>">
+
+	<label for="body">Comments</label>
+	<br>
+	<textarea name="review[body]" id="body" rows="10" cols="40"></textarea>
+
+  <br><br>
+  <label for="rating">Rating</label>
+	<select name="review[rating]" id="rating">
+	  <option>Please Rate!</option>
+	  <option value=5>5</option>
+	  <option value=4>4</option>
+	  <option value=3>3</option>
+	  <option value=2>2</option>
+	  <option value=1>1</option>
+  </select>
+
+	<input type="submit" value="Add Review!">
+
+</form>
+
+
+<br><br>
+<a href="#/locations/<%= location.escape('id') %>">Back to Show Page</a>

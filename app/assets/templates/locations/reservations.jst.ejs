@@ -1,0 +1,59 @@
+This is the reservations page. Please fill me up.
+
+<br>
+
+Reservations:
+  <% reservations.each(function(reservation){ %>
+    <li><strong>User: </strong><%= reservation.escape("user_id") %></li>
+    <li><strong>Start Date: </strong><%= reservation.escape("date_start") %></li>
+    <li><strong>End Date: </strong><%= reservation.escape("date_end") %></li>
+    <li><strong>Status: </strong><%= reservation.escape("status") %></li>
+		<% if (reservation.escape("status") == "PENDING") { %>
+		  <li>
+		  	<form class="approve-reservation">
+			  
+			  <input type="hidden"
+				       name="reservation[status]"
+		           value="APPROVE" >
+		    <input value="APPROVE" type="submit"> 
+		    </form>
+      </li>
+      <li>
+		    <form class="deny-reservation">		  
+			  <input type="hidden"
+				       name="reservation[status]"
+		           value="DENY" >
+		    <input value="DENY" type="submit"> 
+		    </form>
+		  </li>
+		  <% } %>
+		  <br>
+
+	<% }) %>
+
+
+<strong>Make a reservation for <%= location.escape("title") %>!</strong>
+
+<form class="add-reservation">
+
+	<input type="hidden"
+	       name="reservation[location_id]"
+	       value="<%= location.escape('id') %>">
+
+	<label for="date_start">Start Date</label>
+	<br>
+	<input type="date" name="reservation[date_start]" id="date_start">
+	<br>
+	<label for="date_end">End Date</label>
+	<br>
+  <input type="date" name="reservation[date_end]" id="date_end">
+	<br>
+	<input type="submit" value="Make Reservation!">
+
+</form>
+
+
+
+
+<br><br>
+<a href="#/locations/<%= location.escape('id') %>">Back to Show Page</a>

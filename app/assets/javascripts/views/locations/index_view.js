@@ -9,7 +9,18 @@ StarTours.Views.LocationsIndex = Backbone.View.extend({
   template: JST["locations/index"],
 
   events: {
-    "click":"redirect"
+    "click strong":"redirect",
+    "click .delete-location":"deleteLocation"
+  },
+
+  deleteLocation: function(event){
+    event.preventDefault();
+    // destroy via view model
+    this.model.destroy({
+      success: function(response){
+        this.remove();
+      }.bind(this)
+    });
   },
 
   redirect: function(event){

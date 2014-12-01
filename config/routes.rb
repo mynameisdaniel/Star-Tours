@@ -6,6 +6,11 @@ Rails.application.routes.draw do
       resources :reviews, only: [:new]
       resources :reservations, only: [:new]
     end
+    resources :location_pictures, only: [:create]
+    resources :reservations
+    resources :reviews
+
+
   end
 
   resources :users do
@@ -13,8 +18,5 @@ Rails.application.routes.draw do
   end
   resource :session
   
-  resources :reviews
-  resources :reservations
-  resources :location_pictures, only: [:create]
 
 end

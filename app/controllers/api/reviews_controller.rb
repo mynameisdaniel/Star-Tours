@@ -10,10 +10,9 @@ class Api::ReviewsController < ApplicationController
 		@location = Location.find(review_params[:location_id])
 		
     if ensure_rating(@review) && @review.save
-      redirect_to location_url(@location)
+			render json: @review
     else
     	flash[:errors] = ["Please fill out review or select a rating"]
-      render :new
     end 
 	end
 
