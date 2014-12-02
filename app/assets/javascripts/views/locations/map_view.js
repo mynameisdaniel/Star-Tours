@@ -13,8 +13,10 @@ StarTours.Views.MapView = Backbone.View.extend({
             zoom: 13
           };
 
+
           map = new google.maps.Map(this.$el.find('#map-canvas')[0],
               mapOptions);
+          markersArray = [];
 
           var marker = new google.maps.Marker({
             position: { lat: 37.781352, lng: -122.411084},
@@ -25,14 +27,24 @@ StarTours.Views.MapView = Backbone.View.extend({
         drawMap = true;
   },
 
+  clearOverlays: function () {
+    for (var i = 0; i < markersArray.length; i++ ) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
+  },
+
+
   addMarkers: function(coords){
         coords.forEach(function(coord){
-          new google.maps.Marker({
+          var marker = new google.maps.Marker({
           position: { lat: Number(coord[0]), lng: Number(coord[1])},
           map: map,
           title: coord[2]
         })
+          markersArray.push(marker);
         })
+        // this.clearOverlays();
   },
 
   coordinates: function(){

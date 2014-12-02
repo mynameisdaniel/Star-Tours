@@ -2,7 +2,6 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
 
   initialize: function(){
   	this.listenTo(this.collection, "sync", this.render)
-
   },
 
   events:{
@@ -13,6 +12,8 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
     var vals = this.$el.find('#slider').slider('values')
     this.$el.find('#listings-index').empty();
     this.renderLocations(vals);
+    var mapSubview = this.subviews()['#map-view'];
+    mapSubview[1].clearOverlays();
   },
 
   renderLocations: function(options){
@@ -39,7 +40,7 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
     
     var mapView = new StarTours.Views.MapView({collection: this.collection});
     this.addSubview("#map-view", mapView);
-    
+
     this.renderLocations();
 
     this.$el.find('#slider').slider();
