@@ -4,7 +4,7 @@
        <img src="<%= image_url %>" style="display: block; height: 100%; margin-left: auto; margin-right: auto">
   <% } else { %>
 
-       <img src="http://upload.wikimedia.org/wikipedia/commons/e/ef/Cathedral_Group_panorama_from_Cathedral_Group_Scenic_Turnout2.JPG" style="display: block; height: 100%; margin-left: auto; margin-right: auto"
+       <img src="http://upload.wikimedia.org/wikipedia/commons/e/ef/Cathedral_Group_panorama_from_Cathedral_Group_Scenic_Turnout2.JPG" style="display: block; height: 100%; margin-left: auto; margin-right: auto">
 
   <% } %>
 </div>
@@ -17,7 +17,7 @@
   
   <br>
 	<a href="#/locations/<%= location.escape('id') %>/reservations">Make a reservation</a>
-	<a href="#/locations/<%= location.escape('id') %>/reviews">Add a review</a>
+	<a href="#/locations/<%= location.escape('id') %>/reviews">Reviews</a>
   <a href="#/locations/<%= location.escape('id') %>/edit">Edit Location Details</a>
   <a href="#/master/">Browse Other Locations</a>
   
@@ -41,7 +41,7 @@
 <br>
 
   <% pictures.each(function(picture){ %>
-  <span><img src="<%= picture.escape('image_url') %>" height="200" width="200"></span>
+  <span style="height: 200px; width: 200px;"><img src="<%= picture.escape('image_url') %>" max-height="100%" max-width="200"></span>
   
   <% })  %>
 

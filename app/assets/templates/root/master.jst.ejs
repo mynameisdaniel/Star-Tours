@@ -1,17 +1,19 @@
-This is the master view, please fill it up.
+<div id="map-view" style="position: absolute; top:50px; left:0px; width: 50%; height: 100%;"></div>
 
 
-
-
-<div id="map-canvas" style="position: absolute; top:50px;left:0px;width: 50%; height: 100%"></div>
-<script>initialize({ lat: 37.781352, lng: -122.411084})</script>
 <div style="position: absolute; top:50px; left:50%; width: 50%; height: 100%; outline: 1px solid black;">
-<div id="filters-view">Insert Filter View Here</div>
+
+
+<div id="filters-view" style="height: 200px">
+  <label for="amount">Price range:</label>
+  <input type="text" id="amount" readonly style="border:0; font-weight:bold;">
+  <br><br>
+  <div id="slider"></div>
+</div>
+      
 
 <div id="listings-index"><strong>Listings Index</strong><br>
 
 
-</div>
-<div>
 </div>
 
