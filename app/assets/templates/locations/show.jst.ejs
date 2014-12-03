@@ -9,7 +9,7 @@
   <% } %>
 </div>
 
-<div class="location-show-mini-blurb">Mini blurb, owner picture, location amenities
+<div class="location-show-mini-blurb">
 	<li><strong>Title: </strong><%= location.escape("title") %></li>
 	<li><strong>Description: </strong><%= location.escape("description") %></li>
 	<li><strong>Price: </strong><%= location.escape("price") %></li>
@@ -23,7 +23,7 @@
   
 </div>
 
-<div class="location-show-other">Add update picture here.
+<div class="location-show-other">
 
 <form>
 
@@ -41,7 +41,11 @@
 <br>
 
   <% pictures.each(function(picture){ %>
-  <span ><img src="<%= picture.escape('image_url') %>" height="200px" width="200px"></span>
+  <span>
+    <a href="<%= picture.escape('image_url') %>">
+      <img src="<%= picture.escape('image_url') %>" height="200px" width="200px">
+      </a>
+  </span>
   
   <% })  %>
 

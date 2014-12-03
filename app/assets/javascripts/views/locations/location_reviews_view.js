@@ -13,6 +13,8 @@ StarTours.Views.LocationReviews = Backbone.View.extend({
     "click button.remove-review": "removeReview"
   },
 
+  className: "reviews-show",
+
   addReview: function(event){
     event.preventDefault();
     var $target = $(event.currentTarget);

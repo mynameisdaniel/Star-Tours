@@ -31,7 +31,6 @@ StarTours.Views.LocationReservations = Backbone.View.extend({
     var $target = $(event.currentTarget);
     var attrs = $target.serializeJSON().reservation;
     var newReservation = new StarTours.Models.Reservation();
-    debugger
     newReservation.save(attrs,{
       success: function(response){
         Backbone.history.navigate(this.model.url().slice(4), { trigger: true})

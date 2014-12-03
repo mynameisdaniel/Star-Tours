@@ -1,6 +1,6 @@
-<strong>Reviews:</strong>
+<div style="border-bottom: 1px solid black;"><strong>Reviews:</strong>
 	<% reviews.each(function(review){ %>
-    <li><strong>Reviewer:</strong> <%= review.escape("user_id") %></li>
+    <li><strong>Reviewer:</strong> <%= review.escape("username") %></li>
     <li><strong>Rating:</strong> <%= review.escape("rating") %></li>
     <li><strong>Review:</strong> <%= review.escape("body") %></li>
     <button class="remove-review" data-id="<%= review.escape('id') %>">Remove</button>
@@ -9,9 +9,9 @@
 	<% }) %>
 
   <br>
-
-
-Add a Review!
+</div>
+<div>
+<strong>Add a Review!</strong>
 
 <form class="add-review">
 
@@ -19,7 +19,7 @@ Add a Review!
 	       name="review[location_id]"
 	       value="<%= location.escape("id") %>">
 
-	<label for="body">Comments</label>
+	<label for="body">Comments:</label>
 	<br>
 	<textarea name="review[body]" id="body" rows="10" cols="40"></textarea>
 
@@ -37,7 +37,8 @@ Add a Review!
 	<input type="submit" value="Add Review!">
 
 </form>
-
+</div>
 
 <br><br>
+
 <a href="#/locations/<%= location.escape('id') %>">Back to Show Page</a>
