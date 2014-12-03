@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203171434) do
+ActiveRecord::Schema.define(version: 20141125234328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20141203171434) do
 
   create_table "locations", force: true do |t|
     t.string   "title",       null: false
-    t.string   "description", null: false
+    t.text     "description", null: false
     t.integer  "user_id",     null: false
     t.integer  "price",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.float    "longitude"
     t.float    "latitude"
     t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141203171434) do
     t.integer  "user_id",     null: false
     t.integer  "location_id", null: false
     t.string   "status",      null: false
+    t.string   "message"
     t.date     "date_start",  null: false
     t.date     "date_end",    null: false
     t.datetime "created_at"
@@ -66,9 +67,10 @@ ActiveRecord::Schema.define(version: 20141203171434) do
     t.string   "username",        null: false
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
+    t.text     "biography"
+    t.string   "picture_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture_url"
   end
 
 end

@@ -1,6 +1,8 @@
 class Api::LocationPicturesController < ApplicationController
+	before_action :ensure_signed_in, only: [:create]
 
 	def create
+		# maybe ensure current_user is attached?
 		location_picture = LocationPicture.new(picture_params)
 		if location_picture.save
 			render json: location_picture
