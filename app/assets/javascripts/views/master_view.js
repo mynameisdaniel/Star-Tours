@@ -2,6 +2,7 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
 
   initialize: function(){
   	this.listenTo(this.collection, "sync", this.render)
+    this.filteredCollection = [];
   },
 
   events:{
@@ -14,6 +15,18 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
     this.renderLocations(vals);
     var mapSubview = this.subviews()['#map-view'];
     mapSubview[1].clearOverlays();
+    this.filter(vals);
+    mapSubview[1].addMarkers(this.filteredCollection);
+  },
+
+  filter: function(options){
+    this.filteredCollection = [];
+    console.log(options)
+    this.collection.each(function(location){
+      if (location.get("price") >= options[0] && location.get("price") <= options[1]) {
+        this.filteredCollection.push(location);
+      }
+    }.bind(this))
   },
 
   renderLocations: function(options){
