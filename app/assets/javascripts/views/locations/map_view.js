@@ -1,22 +1,22 @@
 StarTours.Views.MapView = Backbone.View.extend({
 
   initialize: function(){
-  	// this.listenTo(this.collection, "sync", this.render)
-    drawMap = false
+  	this.listenTo(this.collection, "sync", this.render)
+    var drawMap = false
+    var map = undefined
   },
 
-  map_init: function(coords){
-        if (!drawMap){
-          console.log("init map");
+  map_init: function(){
+        if (!this.drawMap){
           var mapOptions = {
             center: { lat: 37.781352, lng: -122.411084},
             zoom: 13
           };
 
-
-          map = new google.maps.Map(this.$el.find('#map-canvas')[0],
+          this.map = new google.maps.Map(this.$el.find('#map-canvas')[0],
               mapOptions);
           markersArray = [];
+          this.addMarkers(this.collection);
 
         //   var marker = new google.maps.Marker({
         //     position: { lat: 37.781352, lng: -122.411084},
@@ -24,7 +24,7 @@ StarTours.Views.MapView = Backbone.View.extend({
         //     title: 'Hello World!'
         // })
         }
-        drawMap = true;
+        this.drawMap = true;
   },
 
   clearOverlays: function () {
@@ -40,7 +40,7 @@ StarTours.Views.MapView = Backbone.View.extend({
         convertedData.forEach(function(coord){
           var marker = new google.maps.Marker({
           position: { lat: Number(coord[0]), lng: Number(coord[1])},
-          map: map,
+          map: this.map,
           title: coord[2]
         })
           markersArray.push(marker);
@@ -64,8 +64,7 @@ StarTours.Views.MapView = Backbone.View.extend({
   render: function(){
   	var renderedContent = this.template();
   	this.$el.html(renderedContent);
-    this.map_init();
-    this.addMarkers(this.collection);
+
   	return this;
   }
 

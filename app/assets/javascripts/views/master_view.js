@@ -5,18 +5,19 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
     this.filteredCollection = [];
   },
 
+  template: JST["root/master"],
+
   events:{
     "slidestop":"updateLocations"
   },
 
   updateLocations: function(event) {
-    var vals = this.$el.find('#slider').slider('values')
+    var priceRange = this.$el.find('#slider').slider('values')
     this.$el.find('#listings-index').empty();
-    this.renderLocations(vals);
-    var mapSubview = this.subviews()['#map-view'];
-    mapSubview[1].clearOverlays();
-    this.filter(vals);
-    mapSubview[1].addMarkers(this.filteredCollection);
+    this.renderLocations(priceRange);
+    this.mapView.clearOverlays();
+    this.filter(priceRange);
+    this.mapView.addMarkers(this.filteredCollection);
   },
 
   filter: function(options){
@@ -45,25 +46,29 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
     }
   },
 
-  template: JST["root/master"],
+  initSlider: function(){
+    var slider = this.$el.find('#slider').slider();
+    var priceRange = this.$el.find("#amount")
+    slider.slider({range:true, min:0, max:1000, values: [0,1000],
+      slide: function( event, ui ) {
+        priceRange.val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }.bind(this)
+    });
+    priceRange.val( "$" + slider.slider( "values", 0 ) +
+      " - $" + slider.slider( "values", 1 ) )
+
+  },
 
   render: function(){
   	var renderedContent = this.template();
   	this.$el.html(renderedContent);
     
-    var mapView = new StarTours.Views.MapView({collection: this.collection});
-    this.addSubview("#map-view", mapView);
+    this.mapView = new StarTours.Views.MapView({collection: this.collection});
+    this.addSubview("#map-view", this.mapView);
 
     this.renderLocations();
-
-    this.$el.find('#slider').slider();
-    this.$el.find('#slider').slider({range:true, min:0, max:1000, values: [75,300],
-      slide: function( event, ui ) {
-        this.$el.find("#amount").val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }.bind(this)
-    });
-    this.$el.find("#amount").val( "$" + this.$el.find("#slider").slider( "values", 0 ) +
-      " - $" + this.$el.find("#slider").slider( "values", 1 ) )
+    this.initSlider();
+    this.mapView.map_init()
     return this;
   }
 

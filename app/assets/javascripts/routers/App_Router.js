@@ -20,19 +20,16 @@ StarTours.Routers.Router = Backbone.Router.extend({
   contactView: function(){
     var view = new StarTours.Views.TestView();
     this._swapView(view)
-
   },
 
   aboutView: function(){
     var view = new StarTours.Views.TestView();
     this._swapView(view)
-
   },
 
   rootView: function(){
   	var view = new StarTours.Views.RootView();
   	this._swapView(view)
-
   },
 
   masterView: function(){
@@ -41,7 +38,6 @@ StarTours.Routers.Router = Backbone.Router.extend({
       collection: StarTours.Collections.locations
     });
    	this._swapView(view)
-
   },
 
   locationIndex: function(){
