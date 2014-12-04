@@ -1,9 +1,8 @@
 class Api::LocationsController < ApplicationController
 
+  before_action :ensure_signed_on, only: [:create, :edit, :update]
+
   def index
-      # @board = Board.includes(:members, lists: :cards).find(params[:id])
-
-
     @locations = Location.includes(:location_pictures).all
     render :index
   end

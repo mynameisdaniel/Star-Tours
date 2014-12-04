@@ -1,5 +1,7 @@
 class Api::ReservationsController < ApplicationController
 
+  before_action :ensure_signed_on, only: [:new, :create, :update]
+
 	def new
       @reservation = Reservation.new
       @location = Location.find(params[:location_id])

@@ -10,7 +10,7 @@ StarTours.Views.MapView = Backbone.View.extend({
         if (!this.drawMap){
           var mapOptions = {
             center: { lat: 37.781352, lng: -122.411084},
-            zoom: 13
+            zoom: 12
           };
 
           this.map = new google.maps.Map(this.$el.find('#map-canvas')[0],

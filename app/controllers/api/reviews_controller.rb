@@ -1,5 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
+  before_action :ensure_signed_on, only: [:new, :create, :destroy]
+
 	def new
 		@review = Review.new
 		@location = Location.find(params[:location_id])

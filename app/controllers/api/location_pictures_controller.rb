@@ -1,4 +1,5 @@
 class Api::LocationPicturesController < ApplicationController
+	
 	before_action :ensure_signed_in, only: [:create]
 
 	def create

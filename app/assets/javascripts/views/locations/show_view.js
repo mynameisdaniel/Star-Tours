@@ -25,7 +25,6 @@ StarTours.Views.LocationsShow = Backbone.View.extend({
     var newPicture = new StarTours.Models.LocationPicture()
     newPicture.save(attrs,{
       success: function(response){
-        // Backbone.history.navigate(this.model.url().slice(4), { trigger: true})
         this.locationPictures.add(newPicture);
       }.bind(this)
     }) 

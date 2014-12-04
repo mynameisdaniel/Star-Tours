@@ -6,7 +6,7 @@ StarTours.Views.LocationsNew = Backbone.View.extend({
 
   template: JST["locations/new"],
 
-  className: "add-page",
+  className: "form-page",
 
   events:{
     "submit form":"submit"

@@ -1,17 +1,28 @@
+<div class="form-page" style="background-image: url('http://www.cigarettesbrands.com/wp-content/uploads/2013/12/6_elegant_BW_spotlight_background-e1387228836549.jpg'); height: 100%">
 <h1>Sign In</h1>
+<div class="container">
+	<form action="<%= session_url %>" method="post">
 
-<form action="<%= session_url %>" method="post">
+		<input type="hidden"
+		       name="authenticity_token"
+		       value="<%= form_authenticity_token %>">
 
-	<input type="hidden"
-	       name="authenticity_token"
-	       value="<%= form_authenticity_token %>">
+		<label for="username">Username</label>
+		<input type="text" name="user[username]" id="username">
 
-	<label for="username">Username</label>
-	<input type="text" name="user[username]" id="username">
+	  <label for="password">Password</label>
+		<input type="password" name="user[password]" id="password">
 
-  <label for="password">Password</label>
-	<input type="password" name="user[password]" id="password">
-
-	<input type="submit" value="Sign In">
-
-</form>
+		<input type="submit" value="Sign In">
+	</form>
+  <br>
+	<form action="<%= session_url %>" method="post">
+		<input type="hidden"
+		       name="authenticity_token"
+		       value="<%= form_authenticity_token %>">
+		<input type="hidden" name="user[username]" value="Superman">
+		<input type="hidden" name="user[password]" value="password">
+		<input type="submit" value="Guest User">
+	</form>
+</div>
+</div>
