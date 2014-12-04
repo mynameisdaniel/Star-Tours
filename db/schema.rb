@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141125234328) do
     t.integer  "user_id",     null: false
     t.integer  "location_id", null: false
     t.string   "status",      null: false
-    t.string   "message"
+    t.text     "message"
     t.date     "date_start",  null: false
     t.date     "date_end",    null: false
     t.datetime "created_at"

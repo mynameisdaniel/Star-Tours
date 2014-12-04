@@ -2,8 +2,14 @@ StarTours.Views.LocationsShow = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo( this.model, "sync", this.render);
+    this.listenTo(this.model, "error", this.unableToFindLocation); 
     this.locationPictures = this.model.pictures();
     this.listenTo( this.locationPictures, "add", this.render);
+  },
+
+  unableToFindLocation: function(){
+    alert("I'm sorry but that location doesn't exist or you've hit an error.")
+    Backbone.history.navigate('#', {trigger: true})
   },
 
   template: JST["locations/show"],

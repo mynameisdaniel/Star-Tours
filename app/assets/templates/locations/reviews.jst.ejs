@@ -1,14 +1,28 @@
-<div style="border-bottom: 1px solid black;"><strong>Reviews:</strong>
+<div style="border-bottom: 1px solid black;">
+  <div class="reviews">
+	<strong>Reviews (<%= reviews.length %>):</strong><br>
+	<% if (reviews.length > 0) { %>
+	<% var total = 0 %>
+	  <% reviews.each(function(review){ total+= Number(review.escape('rating'))}) %>   
+  <strong>Average Rating (<%= total / reviews.length %>):</strong><br>
+  <% } %>
 	<% reviews.each(function(review){ %>
-    <li><strong>Reviewer:</strong> <%= review.escape("username") %></li>
-    <li><strong>Rating:</strong> <%= review.escape("rating") %></li>
-    <li><strong>Review:</strong> <%= review.escape("body") %></li>
-    <button class="remove-review" data-id="<%= review.escape('id') %>">Remove</button>
-    <br>
 
+	  <div class="review">
+      <div class="review-picture">
+		    <img src="<%= review.escape("picture_url") %>">
+      </div>
+		  <div class="review-content">
+		    <li><strong>Reviewer:</strong> <%= review.escape("username") %></li>
+		    <li><strong>Rating:</strong> <%= review.escape("rating") %></li>
+		    <li><strong>Review:</strong> <%= review.escape("body") %></li>
+	    </div>
+    </div>
+    <br>
 	<% }) %>
 
   <br>
+</div>
 </div>
 <div>
 <strong>Add a Review!</strong>
@@ -41,4 +55,4 @@
 
 <br><br>
 
-<a href="#/locations/<%= location.escape('id') %>">Back to Show Page</a>
+<a href="#/locations/<%= location.escape('id') %>">Back to <%= location.escape("title") %></a>

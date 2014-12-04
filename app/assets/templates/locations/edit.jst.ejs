@@ -1,6 +1,6 @@
 <h1>Edit Location Page</h1>
 
-
+<div class="container">
 <form class="location-form">
 
 	<label for="title">Title</label>
@@ -8,17 +8,19 @@
 	<br>
 
 	<label for="description">Description</label>
-	<input type="textarea" rows="10" cols="40" name="location[description]" id="description" value="<%= location.escape('description') %>">
+	<textarea rows="15" cols="50" name="location[description]" id="description"><%= location.escape('description') %>
+	</textarea>
   <br>
 
 	<label for="address">Address</label>
-	<input type="text" name="location[address]" id="address" value="<%= location.escape('address') %>" style="width: 300px">
+	<input type="text" name="location[address]" id="address" value="<%= location.escape('address') %>">
   <br>
 
   <label for="price">Price</label>
 	<input type="text" name="location[price]" id="price" value="<%= location.escape('price') %>">
   <br>
+  <br>
 	<input type="submit" value="Update Location!">
 
 </form>
-	
+</div>

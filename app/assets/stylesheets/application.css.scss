@@ -28,6 +28,76 @@
   font-family: Montserrat;
 }
 
+div .add-page{
+  background-image: url("http://www.cigarettesbrands.com/wp-content/uploads/2013/12/6_elegant_BW_spotlight_background-e1387228836549.jpg");
+}
+
+div .edit-page{
+  background-image: url("http://www.cigarettesbrands.com/wp-content/uploads/2013/12/6_elegant_BW_spotlight_background-e1387228836549.jpg");
+
+}
+
+div .reviews{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div .review {
+	display: inline-block;
+	transition: background-color 0.5s ease;
+
+}
+
+div .review:hover{
+  -moz-box-shadow: 0 0 10px #ccc; 
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc;
+  background-color: khaki;
+
+}
+
+div .review-picture{
+	display: inline-block;
+	width: 100px;
+	height: 100%;
+}
+
+div .review-content{
+	display: inline-block;
+	left: 100px;
+	width: 600px;
+}
+
+div .review img{
+	display: inline-block;
+	max-width: 100px;
+	max-height: 100px;
+}
+
+div .reservation{
+	display: inline-block;
+}
+
+div .reservation:hover{
+  -moz-box-shadow: 0 0 10px #ccc; 
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc;
+}
+
+div .reservation img{
+	display: inline-block;
+	max-width: 100px;
+	max-height: 100px;
+}
+
+div .reservation-content{
+  display: inline-block;
+	left: 100px;
+	width: 600px;
+}
+
+
 .container {
     width: 500px;
     clear: both;
@@ -63,6 +133,15 @@ div .reviews-show li{
 	list-style: none;
 }
 
+div #master-index-right{
+	position: absolute; 
+	top:50px; 
+	left:50%; 
+	width: 50%; 
+	height: 100%; 
+	overflow: hidden;
+}
+
 div .master-index-show {
 	transition: background-color 0.5s ease;
 	position: relative;
@@ -82,8 +161,9 @@ div .master-index-show:hover {
 }
 
 div .master-index-show button {
-  border-top: none;
-  border-right: none;
+	border: none;
+  // border-top: none;
+  // border-right: none;
 }
 
 div .location-show-main-picture {
@@ -93,10 +173,17 @@ div .location-show-main-picture {
 	overflow: hidden;
 }
 
-
-
 div .location-show-mini-blurb {
 	width: 100%;
-	height: 150px;
+	// height: 150px;
 	border: 1px solid black;
+}
+
+div .location-show-mini-blurb a{
+
+}
+
+div #listings-index {
+	overflow: scroll;
+	height: 80%;
 }

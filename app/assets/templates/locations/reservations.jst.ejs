@@ -1,9 +1,20 @@
-<strong>Existing Reservations:</strong>
+<div style="border-bottom: 1px solid black;"><strong>Existing Reservations:</strong><br>
   <% reservations.each(function(reservation){ %>
-    <li><strong>User: </strong><%= reservation.escape("username") %></li>
-    <li><strong>Start Date: </strong><%= reservation.escape("date_start") %></li>
-    <li><strong>End Date: </strong><%= reservation.escape("date_end") %></li>
-    <li><strong>Status: </strong><%= reservation.escape("status") %></li>
+
+	  <div class="reservation">
+
+		    <img src="<%= reservation.escape("picture_url") %>">
+
+		  <div class="reservation-content">
+				<li><strong>User: </strong><%= reservation.escape("username") %></li>
+		    <li><strong>Start Date: </strong><%= reservation.escape("date_start") %></li>
+		    <li><strong>End Date: </strong><%= reservation.escape("date_end") %></li>
+		    <li><strong>Status: </strong><%= reservation.escape("status") %></li>		  
+	    </div>
+    </div>
+
+
+    
 		<% if (reservation.escape("status") == "PENDING") { %>
 		  <li>
 		  	<form class="approve-reservation" data-id="<%= reservation.escape('id') %>">
@@ -28,6 +39,8 @@
 	<% }) %>
 
 <br><br>
+</div>
+<div>
 <strong>Make a reservation for <%= location.escape("title") %>!</strong>
 
 <form class="add-reservation">
@@ -44,12 +57,20 @@
 	<br>
   <input type="date" name="reservation[date_end]" id="date_end">
 	<br>
+  <label for="message">Message:</label>
+	<br>
+	<textarea name="reservation[message]" id="message" rows="10" cols="40" 
+	          placeholder="Tell me something about yourself and why you'd enjoy a visit!"></textarea>
+
+  <br><br>
+
+
 	<input type="submit" value="Make Reservation!">
 
 </form>
 
 
 
-
+</div>
 <br><br>
 <a href="#/locations/<%= location.escape('id') %>">Back to <%= location.escape('title') %></a>

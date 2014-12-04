@@ -6,6 +6,8 @@ StarTours.Views.LocationEdit = Backbone.View.extend({
 
   template: JST["locations/edit"],
 
+  className: "edit-page",
+
   events:{
     "submit form":"submit"
   },

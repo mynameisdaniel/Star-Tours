@@ -1,6 +1,4 @@
 <a href="#/locations/<%= location.escape('id') %>"><%= location.escape("title") %></a>
 <button style="float:right;" class="delete-location" data-id=<%= location.escape("id") %>">X</button>
-<br>
-Description: <%= location.escape("description") %>
-<br>
-Price: <%= location.escape("price") %>
+<br><strong>Description: </strong><%= location.escape("description") %>
+<br><strong>Price: </strong><%= location.escape("price") %>
