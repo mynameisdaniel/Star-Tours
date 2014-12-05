@@ -1,5 +1,5 @@
 == Star Tours: The Final Frontier...
 
-This is my final project for App Academy SF. I reinforces everything my cohort has learned about web development. This app utilizes Ruby on Rails, Backbone, jQuery, CSS, Bootstrap, the Google Maps API, amongst other skillsets.
+This is my final project for App Academy SF. It reinforces everything my cohort has learned about web development. This app utilizes Ruby on Rails, Backbone, jQuery, CSS, Bootstrap, the Google Maps API, amongst other skillsets.
 
 Enjoy!
