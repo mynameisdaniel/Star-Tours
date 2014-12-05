@@ -80,6 +80,7 @@ div .review-picture{
 
 div .review-content{
 	float:left;
+	width: 600px;
 }
 
 div .review img{
@@ -92,22 +93,33 @@ div .review img{
 
 div .reservation{
 	display: inline-block;
+	transition: background-color 0.5s ease;
+
+}
+
+div .reservation-picture{
+	float: left;
+	width: 100px;
+	height: 100%;
 }
 
 div .reservation:hover{
   -moz-box-shadow: 0 0 10px #ccc; 
   -webkit-box-shadow: 0 0 10px #ccc;
   box-shadow: 0 0 10px #ccc;
+  background-color: khaki;
+
 }
 
 div .reservation img{
 	display: inline-block;
 	max-width: 100px;
 	max-height: 100px;
+	object-fit:cover;
 }
 
-div .reservation-content{
-  display: inline-block;
+div .reservation-content{  
+  float: left;
 	left: 100px;
 	width: 600px;
 }

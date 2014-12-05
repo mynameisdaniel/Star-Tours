@@ -8,9 +8,12 @@
 
 ActiveRecord::Base.transaction do
 
-	daniel = User.create(username: "Daniel", biography: "Daniel graduated from UC Berkeley in 2014 with a degree in Political Science. A journeyman always ready for an adventure, Daniel traveled with Cirque du Soleil's Ovo for a year and a half where he managed temp hires and loaded 53 foot trucks. Daniel has also worked for two years in the casino and gaming industry. He is excited to transition into software and web development.", picture_url: "http://images4.static-bluray.com/products/22/56_1_large.jpg", password: "daniel")
 
-	superman = User.create(username: "Superman", biography: "Stronger than a locomotive. Faster than a speeding bullet...", picture_url: "http://static2.wikia.nocookie.net/__cb20110326144759/superman/images/d/d0/Superman-btbatb.jpg", password: "password")
+
+
+  daniel = User.create(username: "Daniel", biography: "Daniel graduated from UC Berkeley in 2014 with a degree in Political Science. A journeyman always ready for an adventure, Daniel traveled with Cirque du Soleil's Ovo for a year and a half where he managed temp hires and loaded 53 foot trucks. Daniel has also worked for two years in the casino and gaming industry. He is excited to transition into software and web development.", picture_url: "http://images4.static-bluray.com/products/22/56_1_large.jpg", password: "daniel")
+
+  superman = User.create(username: "Superman", biography: "Stronger than a locomotive. Faster than a speeding bullet...", picture_url: "http://static2.wikia.nocookie.net/__cb20110326144759/superman/images/d/d0/Superman-btbatb.jpg", password: "password")
 
   worf = User.create(username: "Commander Worf", biography: "Worf, son of Mogh, is a Klingon and chief security officer aboard the USS Enterprise D. A skilled practitioner of the bat'leth, he is a frequent participant in combat tournaments. In his free time he enjoys drinking prune juice.", picture_url: "http://www.trekmate.org.uk/wp-content/uploads/2013/05/worfwill.jpg",password: "iamworf")
 
@@ -19,22 +22,22 @@ ActiveRecord::Base.transaction do
   vader = User.create(username: "Darth Vader", biography: "I am Lord Vader. I have come to Earth to witness Star Wars Episode 7: The Forth Awakens. Coming to a theatre near you December, 2015. This movie is directed by JJ Abrams. Expect lens flares.", picture_url: "http://www.topdesignmag.com/wp-content/uploads/2011/07/64.png", password: "darthvader")
 
   kenobe = User.create(username: "Ben Kenobe", biography: "The force is strong", picture_url: "http://images4.fanpop.com/image/photos/24000000/Ben-Kenobi-ben-kenobi-24018429-447-335.jpg", password: "starwars")
-	
-	picard = User.create(username: "Captain Picard", biography: "My real name is Patrick Stewart. Wouldn't you like a cup of Earl Grey tea? When I'm not playing the role of Captain Picard, I am Professor X. Previously I moonlighted with Ian McKellan as a Shakespearean actor.", picture_url: "http://fierceandnerdy.com/wp-content/uploads/2012/01/Picard2379.jpg",password: "captain")
+  
+  picard = User.create(username: "Captain Picard", biography: "My real name is Patrick Stewart. Wouldn't you like a cup of Earl Grey tea? When I'm not playing the role of Captain Picard, I am Professor X. Previously I moonlighted with Ian McKellan as a Shakespearean actor.", picture_url: "http://fierceandnerdy.com/wp-content/uploads/2012/01/Picard2379.jpg",password: "captain")
 
-	quark = User.create(username: "Quark", biography: "Let me tell you something about Hew-mons, Nephew. They're a wonderful, friendly people, as long as their bellies are full and their holosuites are working. But take away their creature comforts, deprive them of food, sleep, sonic showers, put their lives in jeopardy over an extended period of time and those same friendly, intelligent, wonderful people... will become as nasty and as violent as the most bloodthirsty Klingon. You don't believe me? Look at those faces. Look in their eyes.", picture_url: "http://persephonemagazine.com/wp-content/uploads/2012/07/quark.gif", password: "iamquark")
+  quark = User.create(username: "Quark", biography: "Let me tell you something about Hew-mons, Nephew. They're a wonderful, friendly people, as long as their bellies are full and their holosuites are working. But take away their creature comforts, deprive them of food, sleep, sonic showers, put their lives in jeopardy over an extended period of time and those same friendly, intelligent, wonderful people... will become as nasty and as violent as the most bloodthirsty Klingon. You don't believe me? Look at those faces. Look in their eyes.", picture_url: "http://persephonemagazine.com/wp-content/uploads/2012/07/quark.gif", password: "iamquark")
 
-	hanssolo = User.create(username: "Hans Solo", biography: "Damnit Chewy! We're gonna need a faster ship", picture_url: "http://img2.wikia.nocookie.net/__cb20080705234747/darth/images/d/d0/Han_solo.jpg", password: "hanssolo")
+  hanssolo = User.create(username: "Hans Solo", biography: "Damnit Chewy! We're gonna need a faster ship", picture_url: "http://img2.wikia.nocookie.net/__cb20080705234747/darth/images/d/d0/Han_solo.jpg", password: "hanssolo")
 
-	kirk = User.create(username: "Captain Kirk", biography: "Space the final frontier...", picture_url: "http://www.hoolinet.com/Portals/0/Captainkirk.jpg", password: "captainkirk")
+  kirk = User.create(username: "Captain Kirk", biography: "Space the final frontier...", picture_url: "http://www.hoolinet.com/Portals/0/Captainkirk.jpg", password: "captainkirk")
 
-	borg = User.create(username: "The Borg", biography: "We are the borg. Your biological and technological distinctiveness will be added to our own. Resistance is futile.", picture_url: "http://www.startrek.com/uploads/assets/articles/8_voice.jpg", password:"theborg")
+  borg = User.create(username: "The Borg", biography: "We are the borg. Your biological and technological distinctiveness will be added to our own. Resistance is futile.", picture_url: "http://www.startrek.com/uploads/assets/articles/8_voice.jpg", password:"theborg")
 
-	ewoks = User.create(username: "Ewoks", picture_url: "http://www.tk1336.com/pictures/wicketewok.jpg", biography: "We own the night. Rawr. Nom Nom Nom Nom.", password: "wookies")
+  ewoks = User.create(username: "Ewoks", picture_url: "http://www.tk1336.com/pictures/wicketewok.jpg", biography: "We own the night. Rawr. Nom Nom Nom Nom.", password: "wookies")
 
-	data = User.create(username: "Commander Data", picture_url: "http://static.comicvine.com/uploads/original/10/103184/3143248-lt-commander-data-star-trek-the-next-generation-9406567-1664-2560.jpg", biography: "My neuro positronic network enables me to calculate pi to a very precise value. I am interested in comedy and will practice my skills at a local comedy club.", password: "ewoks")
+  data = User.create(username: "Commander Data", picture_url: "http://static.comicvine.com/uploads/original/10/103184/3143248-lt-commander-data-star-trek-the-next-generation-9406567-1664-2560.jpg", biography: "My neuro positronic network enables me to calculate pi to a very precise value. I am interested in comedy and will practice my skills at a local comedy club.", password: "commanderdata")
 
-	leia = User.create(username: "Princess Leia", picture_url: "http://idrawgirls.com/tutorials/wp-content/uploads/2012/04/draw-portrait-princess-leia.jpg", biography: "Buh.Buuh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuhBuh.", password: "princess")
+  leia = User.create(username: "Princess Leia", picture_url: "http://idrawgirls.com/tutorials/wp-content/uploads/2012/04/draw-portrait-princess-leia.jpg", biography: "Buh.Buuh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuhBuh.", password: "princess")
 
 
 # locations
@@ -111,11 +114,22 @@ ActiveRecord::Base.transaction do
     {image_url: "http://2.bp.blogspot.com/--rurDhukLe8/UYks6DB2JuI/AAAAAAAACL8/FJSX1AG1Qag/s1600/IMG_3979.jpg"}
   ])
 
+  presidio.reviews.create([
+    {user_id: worf.id, rating: 4, body: "There was plenty of food available, but it was very sunny."},
+    {user_id: kirk.id, rating: 4, body: "Why is there a Walt Disney Museum here?"},
+    {user_id: vader.id, rating: 3, body: "I will obliterate Yoda to pieces."}
+  ])
+
+  presidio.reservations.create([
+    {user_id: kenobe.id, status: "Approved", date_start: "2014-12-04", date_end: "2015-01-02"}
+  ])
+
   lombard = hanssolo.locations.create(title:"Lombard Street", description:"You know I've always been fascinated by curvy things. Can you believe the residents let tourists drive down the whindy path. The flowers are gorgeous in the Spring. Afterwards I take Chewy to get some overpriced ice cream at Ghirardelli Square.", address: "Lombard Street and Hyde Street, San Francisco, CA", price: 25)
 
-  lombard.reviews.create(user_id: kirk.id, rating: 5, body: "Fascinating. Quite fascinating.")
-
-  lombard.reviews.create(user_id: daniel.id, rating: 5, body: "This sure beats the Painted Ladies over by Alamo Park.")
+  lombard.reviews.create([
+    {user_id: kirk.id, rating: 5, body: "Fascinating. Quite fascinating."},
+    {user_id: daniel.id, rating: 5, body: "This sure beats the Painted Ladies over by Alamo Park."}
+  ])
 
   lombard.location_pictures.create([  
     {image_url: "http://www.journeysinlightphotoblog.net/wp-content/uploads/2013/07/crooked-lombard-street-3-1.jpg"},
@@ -170,15 +184,12 @@ ActiveRecord::Base.transaction do
     {user_id: daniel.id, rating:1, body: "Those ewoks must be running amuck again. Too much construction."},
     {user_id: ewoks.id, rating:1, body: "HehEhehe."},
     {user_id: vader.id, rating:2, body: "I sense Mark Zuckerberg's presence. His force is strong"}
-  	])
+    ])
 
   expensivehouse = vader.locations.create(title: "Darth Vader's Very Expensive Home", description:"A house worth $30 million with multiple garages in the Pacific Heights.", address: "2724 Pacific Avenue, San Francisco, CA", price: 1000)
 
 
   expensivehouse.location_pictures.create(image_url: "http://www.extravaganzi.com/wp-content/uploads/2012/11/Historic-Pacific-Heights-Mansion-5.jpg")
-
-
-
 
 
 

@@ -2,9 +2,9 @@
   <% reservations.each(function(reservation){ %>
 
 	  <div class="reservation">
-
+      <div class="reservation-picture">
 		    <img src="<%= reservation.escape("picture_url") %>">
-
+      </div>
 		  <div class="reservation-content">
 				<li><strong>User: </strong><%= reservation.escape("username") %></li>
 		    <li><strong>Start Date: </strong><%= reservation.escape("date_start") %></li>
