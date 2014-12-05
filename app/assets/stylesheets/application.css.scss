@@ -28,8 +28,20 @@
   font-family: Montserrat;
 }
 
+// div .about{
+// 	background-color: #36465d;
+// 	position: absolute;
+// 	width: 100%;
+// 	height: 100%;
+// }
+
 div .form-page{
   background-image: url("http://www.cigarettesbrands.com/wp-content/uploads/2013/12/6_elegant_BW_spotlight_background-e1387228836549.jpg");
+  // position: fixed;
+  // top: 50px;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
 }
 
 div .add-page{
@@ -49,7 +61,7 @@ div .reviews{
 div .review {
 	display: inline-block;
 	transition: background-color 0.5s ease;
-
+  padding-top: 10px
 }
 
 div .review:hover{
@@ -61,21 +73,21 @@ div .review:hover{
 }
 
 div .review-picture{
-	display: inline-block;
+	float: left;
 	width: 100px;
 	height: 100%;
 }
 
 div .review-content{
-	display: inline-block;
-	left: 100px;
-	width: 600px;
+	float:left;
 }
 
 div .review img{
 	display: inline-block;
-	max-width: 100px;
-	max-height: 100px;
+	width:100px;
+	height:100px;
+	object-fit:cover;
+	// the opposite of cover is contain!
 }
 
 div .reservation{
@@ -145,13 +157,17 @@ div #master-index-right{
 	overflow: hidden;
 }
 
+div #listings-index {
+	overflow: scroll;
+	height: 85%;
+}
+
 div .master-index-show {
 	transition: background-color 0.5s ease;
 	position: relative;
 	display: inline-block;
 	width: 100%;
 	border: 1px solid black;
-	border-left: none;
 	border-bottom: none;
 }
 
@@ -165,8 +181,6 @@ div .master-index-show:hover {
 
 div .master-index-show button {
 	border: none;
-  // border-top: none;
-  // border-right: none;
 }
 
 div .location-show-main-picture {
@@ -183,10 +197,4 @@ div .location-show-mini-blurb {
 }
 
 div .location-show-mini-blurb a{
-
-}
-
-div #listings-index {
-	overflow: scroll;
-	height: 80%;
 }

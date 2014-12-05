@@ -38,7 +38,7 @@
   <% pictures.each(function(picture){ %>
   <span>
     <a href="<%= picture.escape('image_url') %>">
-      <img src="<%= picture.escape('image_url') %>" height="200px" width="200px">
+      <img src="<%= picture.escape('image_url') %>" height="200px" width="200px"  style="object-fit:cover;">
     </a>
   </span>
   

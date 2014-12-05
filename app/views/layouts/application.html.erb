@@ -46,6 +46,7 @@
               <li><%= link_to "Add a Location", "#locations/new" %></li>
               <!-- <li><%= link_to "Add a Location", new_api_location_url %></li> -->
               <li class="divider"></li>
+              <li><a href="#about">About</a></li>
               <li><%= link_to "Log Out", session_url, method: :delete %></li>
             </ul>
             <% end %>
@@ -54,13 +55,8 @@
 
 
           <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Star Tours <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#about">About</a></li>
-              <li class="divider"></li>
+              <img src="<%= asset_path( 'logo.png' ) %>" style="height: 50px">
 
-              <li><a href="#contact">Contact</a></li>
             </ul>
           </li>
         </ul>

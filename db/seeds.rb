@@ -10,9 +10,11 @@ ActiveRecord::Base.transaction do
 
 	daniel = User.create(username: "Daniel", biography: "Daniel graduated from UC Berkeley in 2014 with a degree in Political Science. A journeyman always ready for an adventure, Daniel traveled with Cirque du Soleil's Ovo for a year and a half where he managed temp hires and loaded 53 foot trucks. Daniel has also worked for two years in the casino and gaming industry. He is excited to transition into software and web development.", picture_url: "http://images4.static-bluray.com/products/22/56_1_large.jpg", password: "daniel")
 
-	superman = User.create(username: "Superman", biography: "Stronger than a locomotive. Faster than a speeding bullet...", password: "password")
+	superman = User.create(username: "Superman", biography: "Stronger than a locomotive. Faster than a speeding bullet...", picture_url: "http://static2.wikia.nocookie.net/__cb20110326144759/superman/images/d/d0/Superman-btbatb.jpg", password: "password")
 
   worf = User.create(username: "Commander Worf", biography: "Worf, son of Mogh, is a Klingon and chief security officer aboard the USS Enterprise D. A skilled practitioner of the bat'leth, he is a frequent participant in combat tournaments. In his free time he enjoys drinking prune juice.", picture_url: "http://www.trekmate.org.uk/wp-content/uploads/2013/05/worfwill.jpg",password: "iamworf")
+
+  ripley = User.create(username: "Ellen Ripley", biography: "I blew up aliens with other badass female marines in 80s flicks before it was cool.", picture_url: "https://www.stanwinstonschool.com/ckeditor_assets/pictures/673/content_tumblr_maq0mt7wdc1rhq7xgo1_500.jpg?1350420974", password: "ripley")
 
   vader = User.create(username: "Darth Vader", biography: "I am Lord Vader. I have come to Earth to witness Star Wars Episode 7: The Forth Awakens. Coming to a theatre near you December, 2015. This movie is directed by JJ Abrams. Expect lens flares.", picture_url: "http://www.topdesignmag.com/wp-content/uploads/2011/07/64.png", password: "darthvader")
 
@@ -50,8 +52,7 @@ ActiveRecord::Base.transaction do
 
   cupidarrow.reviews.create(user_id: vader.id, rating: 1, body: "Love is a pittence compared to the strength of the dark side. The meek cling on to it as their last vestige of hope.")
 
-  cupidarrow.reviews.create(user_id: kenobe.id, rating: 5, body: "Will you be quiet Anakin! We're no longer in our universe. The force is strong at the 'House of Air'.")
-
+  cupidarrow.reviews.create(user_id: kenobe.id, rating: 5, body: "Will you be quiet Anakin! We're no longer in our universe.")
 
   crissy_field = ewoks.locations.create(title:"Crissy Field", description:"A nice place where you can take a relaxing stroll, hop aboard a yacht, or visit the 'House of Air' and get your hangtime on. Beware of the ewoks coming out at night.", address: "Crissy Field, San Francisco, CA", price: 33)
 
@@ -63,6 +64,21 @@ ActiveRecord::Base.transaction do
     {image_url: "http://static.panoramio.com/photos/large/18368134.jpg"}
     ])
 
+  crissy_field.reviews.create([
+    {user_id: data.id, rating: 3, body: "I do not understand the purpose of that hanging steel sculpture."},
+    {user_id: kirk.id, rating: 1, body: "One minute I was engaging in some tomfollery, the next I was airborne at the 'House of Air'."},
+    {user_id: hanssolo.id, rating: 1, body: "Open fields means open season in my book."},
+    {user_id: superman.id, rating: 3, body: "Who will build the roads?"},
+    {user_id: picard.id, rating: 3, body: "It's so foggy here"},
+  ])
+
+  crissy_field.reservations.create([
+    {user_id: borg.id, status: "Approved", date_start: "2014-12-01", date_end: "2014-12-02"},
+    {user_id: borg.id, status: "Approved", date_start: "2014-12-02", date_end: "2014-12-03"},
+    {user_id: borg.id, status: "Approved", date_start: "2014-12-03", date_end: "2014-12-04"},
+    {user_id: borg.id, status: "Approved", date_start: "2014-12-04", date_end: "2014-12-05"}
+  ])
+
   gg_park = ewoks.locations.create(title:"Golden Gate Park", description:"This park is very big. Not to be confused with the Presidio and it's California Redwood-like trees, Golden Gate Park houses the California Academy of Science and wondrous botannical gardens. On Thursday nights, cocktails and hor dourves are served while you play with the animals. There was a chainsaw incident a few years ago though...", address: "Golden Gate Park, San Francisco, CA",price: 33)
 
   gg_park.location_pictures.create([
@@ -73,9 +89,17 @@ ActiveRecord::Base.transaction do
     {image_url: "http://www.garywaldeck.org/Napa/IMG_7550.JPG"}
   ])
 
-  gg_park.reviews.create(user_id: picard.id, rating: 5, body: "To boldly go through garden  pleasantly reminds me of my hometown in France")
+  gg_park.reviews.create([
+    {user_id: picard.id, rating: 5, body: "To boldly go through garden  pleasantly reminds me of my hometown in France"},
+    {user_id: data.id, rating: 5, body: "Captain, I believe that is a split infinitive. I am amazed by how much wildlife exist in the planetarium."},
+    {user_id: hanssolo.id, rating: 1, body: "If those ewoks start complaining during the music festival again, I'm going start to carry my phaser"},
+    {user_id: quark.id, rating: 5, body: "I see opportunity here."}
+  ])
 
-  gg_park.reviews.create(user_id: data.id, rating: 5, body: "Captain, I believe that is a split infinitive. I am amazed by how much wildlife exist in the planetarium.")
+  gg_park.reservations.create([
+    {user_id: quark.id, status: "Approved", date_start: "2014-08-01", date_end: "2014-09-01"},
+    {user_id: quark.id, status: "PENDING", date_start: "2015-08-01", date_end: "2014-09-01"}
+  ])
 
   presidio = ewoks.locations.create(title:"The Presidio", description:"On clear days the view of the Golden Gate Bridge is spectacular. Come on Sundays to enjoy the festive Off the Grid foodtrucks. If you get a change, take a tour of Industrial Light and Magic (ILM) producers of the movie special effects. There's also a statue of Yoda somewhere... ", address: "The Presidio, San Francisco, CA", price: 33)
 

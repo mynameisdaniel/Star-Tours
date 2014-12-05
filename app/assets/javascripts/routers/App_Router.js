@@ -8,7 +8,6 @@ StarTours.Routers.Router = Backbone.Router.extend({
   	"":"rootView",
   	"master/":"masterView",
     "about":"aboutView",
-    "contact":"contactView",
 
   	"locations/new": "locationNew",
   	"locations/:id": "locationShow",
@@ -17,13 +16,9 @@ StarTours.Routers.Router = Backbone.Router.extend({
     "locations/:id/edit": "locationEdit"
   },
 
-  contactView: function(){
-    var view = new StarTours.Views.TestView();
-    this._swapView(view)
-  },
 
   aboutView: function(){
-    var view = new StarTours.Views.TestView();
+    var view = new StarTours.Views.AboutView();
     this._swapView(view)
   },
 
