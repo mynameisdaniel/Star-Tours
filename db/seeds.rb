@@ -8,10 +8,7 @@
 
 ActiveRecord::Base.transaction do
 
-
-
-
-  daniel = User.create(username: "Daniel", biography: "Daniel graduated from UC Berkeley in 2014 with a degree in Political Science. A journeyman always ready for an adventure, Daniel traveled with Cirque du Soleil's Ovo for a year and a half where he managed temp hires and loaded 53 foot trucks. Daniel has also worked for two years in the casino and gaming industry. He is excited to transition into software and web development.", picture_url: "http://images4.static-bluray.com/products/22/56_1_large.jpg", password: "daniel")
+  daniel = User.create(username: "Daniel", biography: "Daniel graduated from UC Berkeley in 2014 with a degree in Political Science. A journeyman always ready for an adventure, Daniel traveled with Cirque du Soleil's Ovo for a year and a half where he managed temp hires and loaded 53 foot trucks. Daniel has also worked for two years in the casino and gaming industry. He is excited to transition into software and web development.", picture_url: "https://avatars0.githubusercontent.com/u/8532974?v=3&s=460", password: "daniel")
 
   superman = User.create(username: "Superman", biography: "Stronger than a locomotive. Faster than a speeding bullet...", picture_url: "http://static2.wikia.nocookie.net/__cb20110326144759/superman/images/d/d0/Superman-btbatb.jpg", password: "password")
 
@@ -37,7 +34,7 @@ ActiveRecord::Base.transaction do
 
   data = User.create(username: "Commander Data", picture_url: "http://static.comicvine.com/uploads/original/10/103184/3143248-lt-commander-data-star-trek-the-next-generation-9406567-1664-2560.jpg", biography: "My neuro positronic network enables me to calculate pi to a very precise value. I am interested in comedy and will practice my skills at a local comedy club.", password: "commanderdata")
 
-  leia = User.create(username: "Princess Leia", picture_url: "http://idrawgirls.com/tutorials/wp-content/uploads/2012/04/draw-portrait-princess-leia.jpg", biography: "Buh.Buuh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuhBuh.", password: "princess")
+  leia = User.create(username: "Princess Leia", picture_url: "http://idrawgirls.com/tutorials/wp-content/uploads/2012/04/draw-portrait-princess-leia.jpg", biography: "Buh.Buuh.BuhBuhBuh.Buuuuh.Buh.BuhBuhBuh.Buuuuh.Buh.", password: "princess")
 
 
 # locations

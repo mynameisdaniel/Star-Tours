@@ -1,9 +1,18 @@
-<div class="about-show">
+  <div class="users-index">
+	  <strong>Power-Users:</strong>
+	  <br>
+	
+	<% users.each(function(user){ %>
+
+	  <div class="review">
       <div class="about-picture">
 		    <img src="<%= user.escape("picture_url") %>">
       </div>
-		  <div class="about-content">
+		  <div class="reservation-content">
 		    <li><strong>User:</strong> <%= user.escape("username") %></li>
 		    <li><strong>Biography:</strong> <%= user.escape("biography") %></li>
 	    </div>
-</div>
+    </div>
+    <br>
+	<% }) %>
+  </div>

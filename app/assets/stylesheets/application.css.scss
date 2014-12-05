@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -28,13 +29,6 @@
   font-family: Montserrat;
 }
 
-// div .about{
-// 	background-color: #36465d;
-// 	position: absolute;
-// 	width: 100%;
-// 	height: 100%;
-// }
-
 div .form-page{
   background-image: url("http://www.cigarettesbrands.com/wp-content/uploads/2013/12/6_elegant_BW_spotlight_background-e1387228836549.jpg");
   // position: fixed;
@@ -52,11 +46,44 @@ div .edit-page{
   background-image: url("http://www.cigarettesbrands.com/wp-content/uploads/2013/12/6_elegant_BW_spotlight_background-e1387228836549.jpg");
 }
 
+div .users-index{
+	text-align: center
+}
 div .reviews{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+div .about{
+  text-align: center;
+}
+
+div .about-show{
+  text-align: center;
+}
+
+div .about-picture{
+  float: left;
+}
+
+div .about-picture img{
+	display: inline-block;
+	width:100px;
+	height:100px;
+	object-fit:cover;
+}
+
+div .about-content{
+	text-align: left;
+	float:left;
+	width: 600px;
+}
+
+div .about-content li{
+	list-style: none;
+}
+
 
 div .review {
 	display: inline-block;
@@ -97,6 +124,11 @@ div .reservation{
 
 }
 
+div .reservation-content li{
+	list-style: none;
+	text-align: left;
+}
+
 div .reservation-picture{
 	float: left;
 	width: 100px;
@@ -108,7 +140,6 @@ div .reservation:hover{
   -webkit-box-shadow: 0 0 10px #ccc;
   box-shadow: 0 0 10px #ccc;
   background-color: khaki;
-
 }
 
 div .reservation img{
@@ -210,3 +241,4 @@ div .location-show-mini-blurb {
 
 div .location-show-mini-blurb a{
 }
+

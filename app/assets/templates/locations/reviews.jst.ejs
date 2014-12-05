@@ -1,11 +1,13 @@
 <div style="border-bottom: 1px solid black;">
   <div class="reviews">
-	<strong>Reviews (<%= reviews.length %>):</strong><br>
+	  <strong>Reviews (<%= reviews.length %>):</strong>
+	  <br>
 	<% if (reviews.length > 0) { %>
-	<% var total = 0 %>
+	  <% var total = 0 %>
 	  <% reviews.each(function(review){ total+= Number(review.escape('rating'))}) %>   
   <strong>Average Rating (<%= total / reviews.length %>):</strong><br>
   <% } %>
+	
 	<% reviews.each(function(review){ %>
 
 	  <div class="review">
@@ -28,11 +30,9 @@
 <strong>Add a Review!</strong>
 
 <form class="add-review">
-
 	<input type="hidden"
 	       name="review[location_id]"
 	       value="<%= location.escape("id") %>">
-
 	<label for="body">Comments:</label>
 	<br>
 	<textarea name="review[body]" id="body" rows="10" cols="40"></textarea>

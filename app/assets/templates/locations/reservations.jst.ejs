@@ -1,6 +1,7 @@
-<div style="border-bottom: 1px solid black;"><strong>Existing Reservations:</strong><br>
+<div style="border-bottom: 1px solid black;">
+	<strong>Existing Reservations:</strong>
+	<br>
   <% reservations.each(function(reservation){ %>
-
 	  <div class="reservation">
       <div class="reservation-picture">
 		    <img src="<%= reservation.escape("picture_url") %>">
@@ -12,61 +13,26 @@
 		    <li><strong>Status: </strong><%= reservation.escape("status") %></li>		  
 	    </div>
     </div>
-
-
-    
-		<% if (reservation.escape("status") == "PENDING") { %>
-		  <li>
-		  	<form class="approve-reservation" data-id="<%= reservation.escape('id') %>">
-			  
-			  <input type="hidden"
-				       name="reservation[status]"
-		           value="APPROVE" >
-		    <input value="APPROVE" type="submit"> 
-		    </form>
-      </li>
-      <li>
-		    <form class="deny-reservation" data-id="<%= reservation.escape('id') %>">		  
-			  <input type="hidden"
-				       name="reservation[status]"
-		           value="DENY" >
-		    <input value="DENY" type="submit"> 
-		    </form>
-		  </li>
-		  <% } %>
-		  <br>
-
-	<% }) %>
-
-<br><br>
+  <% }) %>    
+  <br><br>
 </div>
 <div>
 <strong>Make a reservation for <%= location.escape("title") %>!</strong>
 
 <form class="add-reservation">
-
 	<input type="hidden"
 	       name="reservation[location_id]"
 	       value="<%= location.escape('id') %>">
 
-	<label for="date_start">Start Date</label>
-	<br>
-	<input type="date" name="reservation[date_start]" id="date_start">
-	<br>
-	<label for="date_end">End Date</label>
-	<br>
-  <input type="date" name="reservation[date_end]" id="date_end">
-	<br>
-  <label for="message">Message:</label>
-	<br>
+	<label for="date_start">Start Date</label><br>
+	<input type="date" name="reservation[date_start]" id="date_start"><br>
+	<label for="date_end">End Date</label><br>
+  <input type="date" name="reservation[date_end]" id="date_end"><br>
+  <label for="message">Message</label><br>
 	<textarea name="reservation[message]" id="message" rows="10" cols="40" 
 	          placeholder="Tell me something about yourself and why you'd enjoy a visit!"></textarea>
-
   <br><br>
-
-
-	<input type="submit" value="Make Reservation!">
-
+  <input type="submit" value="Make Reservation!">
 </form>
 
 

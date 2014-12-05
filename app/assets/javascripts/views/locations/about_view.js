@@ -1,6 +1,7 @@
 StarTours.Views.AboutView = Backbone.View.extend({
 
   initialize: function(){
+  	this.listenTo(this.model, "sync", this.render)
   },
 
   className: "about",
@@ -8,7 +9,7 @@ StarTours.Views.AboutView = Backbone.View.extend({
   template: JST["root/about"],
 
   render: function(){
-  	var renderedContent = this.template();
+  	var renderedContent = this.template({user:this.model});
   	this.$el.html(renderedContent);
   	return this
   }

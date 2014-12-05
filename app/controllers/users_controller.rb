@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
 
+	before_action :ensure_signed_on
+
 	def new
     @user = User.new
 	end
+
+  def show
+  	@user = User.find(params[:id])
+  	render :show
+  end
+
+  def index
+  	@users = User.where("id <= 14")
+  	render :index
+  end
 
 	def create
 		@user = User.new(user_params)

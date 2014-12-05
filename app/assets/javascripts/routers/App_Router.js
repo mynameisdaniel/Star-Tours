@@ -8,7 +8,8 @@ StarTours.Routers.Router = Backbone.Router.extend({
   	"":"rootView",
   	"master/":"masterView",
     "about":"aboutView",
-
+    "users":"userIndex",
+    "users/:id":"userShowView",
   	"locations/new": "locationNew",
   	"locations/:id": "locationShow",
     "locations/:id/reservations": "locationReservations",
@@ -16,9 +17,23 @@ StarTours.Routers.Router = Backbone.Router.extend({
     "locations/:id/edit": "locationEdit"
   },
 
+  userIndex: function(){
+    StarTours.Collections.users.fetch();
+    var view = new StarTours.Views.UserIndex({
+      collection: StarTours.Collections.users
+    });
+    this._swapView(view)
+  },
+
+  userShowView: function(id){
+    var user = StarTours.Collections.users.getOrFetch(id);
+    var view = new StarTours.Views.AboutView({model: user});
+    this._swapView(view)
+  },
 
   aboutView: function(){
-    var view = new StarTours.Views.AboutView();
+    var user = StarTours.Collections.users.getOrFetch(1);
+    var view = new StarTours.Views.AboutView({model: user});
     this._swapView(view)
   },
 

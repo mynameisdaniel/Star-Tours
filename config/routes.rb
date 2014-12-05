@@ -10,8 +10,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create, :update, :destroy]
     resources :reviews, only: [:create, :update, :destroy]
   end
-  resources :users do
-  	resources :locations, only: [:new]
-  end
+  resources :users, only: [:new]
+  resources :users, only: [:show, :index], defaults: {format: :json}
   resource :session
 end
