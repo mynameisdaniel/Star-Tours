@@ -84,6 +84,9 @@ div .about-content li{
 	list-style: none;
 }
 
+div .reviews-show {
+	text-align: center
+}
 
 div .review {
 	display: inline-block;
@@ -107,6 +110,7 @@ div .review-picture{
 
 div .review-content{
 	float:left;
+	text-align: left;
 	width: 600px;
 }
 
@@ -116,6 +120,10 @@ div .review img{
 	height:100px;
 	object-fit:cover;
 	// the opposite of cover is contain!
+}
+
+div .reservations-show{
+	text-align: center;
 }
 
 div .reservation{

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_action :ensure_signed_on
+	before_action :ensure_signed_on, except: [:new, :create]
 
 	def new
     @user = User.new

@@ -18,11 +18,6 @@ StarTours.Views.MapView = Backbone.View.extend({
           markersArray = [];
           this.addMarkers(this.collection);
 
-        //   var marker = new google.maps.Marker({
-        //     position: { lat: 37.781352, lng: -122.411084},
-        //     map: map,
-        //     title: 'Hello World!'
-        // })
         }
         this.drawMap = true;
   },
@@ -36,26 +31,44 @@ StarTours.Views.MapView = Backbone.View.extend({
 
 
   addMarkers: function(locations){
-        var convertedData = this.coordinates(locations);
-        convertedData.forEach(function(coord){
+        // var convertedData = this.coordinates(locations);
+        // convertedData.forEach(function(coord){
+        locations.each(function(location){
+          var coord = this.coordinates(location)
           var marker = new google.maps.Marker({
           position: { lat: Number(coord[0]), lng: Number(coord[1])},
           map: this.map,
           title: coord[2]
         })
           markersArray.push(marker);
+
+          var contentString = '<div id="content" style="height 200px">'+
+      '<h4 id="firstHeading" class="firstHeading">' +
+      '<a href="#locations/'+ location.escape("id") + '">' +
+      coord[2] +
+      '</a>' +
+      '</h4>' +
+      '<div id="bodyContent">'+
+      location.escape("description") +
+      '</div>'+
+      '</div>';
+          
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(this.map,marker);
+          });
+
         }.bind(this))
   },
 
-  coordinates: function(locations){
+  coordinates: function(location){
     var coords = [];
-    locations.forEach(function(location){
-      var temp = [];
-      temp.push(location.escape('latitude'));
-      temp.push(location.escape('longitude'));
-      temp.push(location.get('title'));
-      coords.push(temp);
-    })
+    coords.push(location.escape('latitude'));
+    coords.push(location.escape('longitude'));
+    coords.push(location.escape('title'));
     return coords
   },
 

@@ -28,7 +28,7 @@ ActiveRecord::Base.transaction do
 
   kirk = User.create(username: "Captain Kirk", biography: "Space the final frontier...", picture_url: "http://www.hoolinet.com/Portals/0/Captainkirk.jpg", password: "captainkirk")
 
-  borg = User.create(username: "The Borg", biography: "We are the borg. Your biological and technological distinctiveness will be added to our own. Resistance is futile.", picture_url: "http://www.startrek.com/uploads/assets/articles/8_voice.jpg", password:"theborg")
+  borg = User.create(username: "The Borg", biography: "We are the borg. Your biological and technological distinctiveness will be added to our own. Resistance is futile.", picture_url: "http://www.oocities.org/area51/rampart/7112/borgcube.jpg", password:"theborg")
 
   ewoks = User.create(username: "Ewoks", picture_url: "http://www.tk1336.com/pictures/wicketewok.jpg", biography: "We own the night. Rawr. Nom Nom Nom Nom.", password: "wookies")
 

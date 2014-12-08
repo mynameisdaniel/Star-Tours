@@ -4,6 +4,8 @@ StarTours.Views.LocationReservations = Backbone.View.extend({
     this.listenTo( this.model, "sync", this.render)
   },
 
+  className: "reservations-show",
+
   template: JST["locations/reservations"],
 
     events: {
