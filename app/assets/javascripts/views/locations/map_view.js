@@ -31,9 +31,7 @@ StarTours.Views.MapView = Backbone.View.extend({
 
 
   addMarkers: function(locations){
-        // var convertedData = this.coordinates(locations);
-        // convertedData.forEach(function(coord){
-        locations.each(function(location){
+        locations.forEach(function(location){
           var coord = this.coordinates(location)
           var marker = new google.maps.Marker({
           position: { lat: Number(coord[0]), lng: Number(coord[1])},

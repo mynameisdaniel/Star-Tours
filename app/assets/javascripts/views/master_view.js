@@ -22,7 +22,6 @@ StarTours.Views.MasterView = Backbone.CompositeView.extend({
 
   filter: function(options){
     this.filteredCollection = [];
-    console.log(options)
     this.collection.each(function(location){
       if (location.get("price") >= options[0] && location.get("price") <= options[1]) {
         this.filteredCollection.push(location);
